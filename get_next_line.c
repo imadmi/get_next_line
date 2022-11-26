@@ -6,7 +6,7 @@
 /*   By: imimouni <imimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:22:20 by imimouni          #+#    #+#             */
-/*   Updated: 2022/11/26 20:23:45 by imimouni         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:53:53 by imimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*get_next_line(int fd)
 		bytes_to_newline = bytes_to_new_line(temporary);
 		if (bytes_to_newline != -1)
 			return (free(buff), get__line(&line, &temporary, bytes_to_newline));
-		if ((len_readed == 0) && temporary[0] == NULL)
+		if ((len_readed == 0) && !temporary[0])
 			break ;
 		if (len_readed == 0)
 			return (free(buff), get_the_rest(&temporary, 0));
