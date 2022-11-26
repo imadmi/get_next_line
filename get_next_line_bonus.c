@@ -6,11 +6,11 @@
 /*   By: imimouni <imimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:22:20 by imimouni          #+#    #+#             */
-/*   Updated: 2022/11/26 19:51:01 by imimouni         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:12:31 by imimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_alloc(char	**buff)
 {
@@ -22,7 +22,7 @@ char	*ft_alloc(char	**buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*temporary[12288];
+	static char	*temporary[OPEN_MAX];
 	char		*buff;
 	char		*line;
 	int			len_readed;
