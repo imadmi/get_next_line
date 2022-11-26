@@ -6,7 +6,7 @@
 /*   By: imimouni <imimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:22:20 by imimouni          #+#    #+#             */
-/*   Updated: 2022/11/26 20:12:31 by imimouni         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:25:02 by imimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_next_line(int fd)
 	char		*buff;
 	char		*line;
 	int			len_readed;
-	int			bytes_to_newline;
+	int			nbr_bytes;
 
 	buff = ft_alloc(&buff);
 	if (!temporary[fd])
@@ -36,10 +36,10 @@ char	*get_next_line(int fd)
 	{
 		buff[len_readed] = 0;
 		temporary[fd] = ft_strjoin(temporary[fd], buff);
-		bytes_to_newline = bytes_to_new_line(temporary[fd]);
-		if (bytes_to_newline != -1)
-			return (free(buff), get__line(&line, &temporary[fd], bytes_to_newline));
-		if ((len_readed == 0) && !temporary[fd][0])
+		nbr_bytes = bytes_to_new_line(temporary[fd]);
+		if (nbr_bytes != -1)
+			return (free(buff), get__line(&line, &temporary[fd], nbr_bytes));
+		if ((len_readed == 0) && temporary[fd][0] == NULL)
 			break ;
 		if (len_readed == 0)
 			return (free(buff), get_the_rest(&temporary[fd], 0));

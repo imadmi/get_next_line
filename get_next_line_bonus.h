@@ -6,17 +6,17 @@
 /*   By: imimouni <imimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:22:29 by imimouni          #+#    #+#             */
-/*   Updated: 2022/11/26 20:11:35 by imimouni         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:26:25 by imimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE__BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-#include <limits.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
