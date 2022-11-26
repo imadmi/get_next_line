@@ -6,7 +6,7 @@
 /*   By: imimouni <imimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:22:29 by imimouni          #+#    #+#             */
-/*   Updated: 2022/11/26 20:26:25 by imimouni         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:31:43 by imimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define GET_NEXT_LINE__BONUS_H
 
 # include <stdlib.h>
+# include <sys/types.h>
+# include <sys/uio.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <limits.h>
