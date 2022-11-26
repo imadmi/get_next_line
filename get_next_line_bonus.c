@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imimouni <imimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:22:20 by imimouni          #+#    #+#             */
-/*   Updated: 2022/11/26 19:39:14 by imimouni         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:51:01 by imimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,30 @@ char	*ft_alloc(char	**buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*temporary;
+	static char	*temporary[12288];
 	char		*buff;
 	char		*line;
 	int			len_readed;
 	int			bytes_to_newline;
 
 	buff = ft_alloc(&buff);
-	if (!temporary)
-		temporary = ft_strdup("");
+	if (!temporary[fd])
+		temporary[fd] = ft_strdup("");
 	len_readed = read(fd, buff, BUFFER_SIZE);
 	while (len_readed >= 0)
 	{
 		buff[len_readed] = 0;
-		temporary = ft_strjoin(temporary, buff);
-		bytes_to_newline = bytes_to_new_line(temporary);
+		temporary[fd] = ft_strjoin(temporary[fd], buff);
+		bytes_to_newline = bytes_to_new_line(temporary[fd]);
 		if (bytes_to_newline != -1)
-			return (free(buff), get__line(&line, &temporary, bytes_to_newline));
-		if ((len_readed == 0) && !temporary[0])
+			return (free(buff), get__line(&line, &temporary[fd], bytes_to_newline));
+		if ((len_readed == 0) && !temporary[fd][0])
 			break ;
 		if (len_readed == 0)
-			return (free(buff), get_the_rest(&temporary, 0));
+			return (free(buff), get_the_rest(&temporary[fd], 0));
 		len_readed = read(fd, buff, BUFFER_SIZE);
 	}
-	ft_ffree(&temporary);
+	ft_ffree(&temporary[fd]);
 	return (free(buff), NULL);
 }
 
