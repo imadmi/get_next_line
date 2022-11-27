@@ -6,7 +6,7 @@
 /*   By: imimouni <imimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:22:20 by imimouni          #+#    #+#             */
-/*   Updated: 2022/11/26 20:54:08 by imimouni         ###   ########.fr       */
+/*   Updated: 2022/11/27 11:32:36 by imimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,32 +83,25 @@ int	bytes_to_new_line(char *temporary)
 }
 
 // cc  -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c && ./a.out
-// #include <fcntl.h>
-// #include <stdio.h>
 
-// int	main(void)
-// {
-// 	system("clear");
-// 	char	*line;
-// 	int	fd = open("test", O_WRONLY | O_CREAT);
-// 	write(fd,"Imad\nOuss\nLmax\nAhmed\nMimouni\n",28);
-// 	fd = open("test", O_RDONLY);
-// 	while (1)
-// 	{
-// 		line = get_next_line(fd);
-// 		printf("%s", line);
-// 		if (line == NULL)
-// 			break ;
-// 		free(line);
-// 	}
-// 	close(fd);
-// /**/
-// 	// int fd = open("test",O_RDWR);
-// 	// write(fd,"123456789",10);
-// 	// printf("%d\n",fd);
-// 	// fd = open("test",O_RDONLY);
-// 	// printf("%d\n",fd);
-// 	// printf("%s",get_next_line(fd));
-// /**/
-// 	return (0);
-// }
+int	main(void)
+{
+	system("clear");
+	char	*line;
+	char	s[]="Imad\nOuss\nLmax\nAhmed\nMimouni\n";
+	int	fd = open("test", O_RDWR | O_CREAT);
+	//write(fd,s,28);
+	//lseek(fd,0,0);
+	//read(fd, s, 28);
+	//fd = open("test", O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		printf("%s", line);
+		if (line == NULL)
+			break ;
+		free(line);
+	}
+	close(fd);
+	return (0);
+}
